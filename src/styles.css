@@ -11,6 +11,11 @@ body {
     font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.container-sm {
+    padding: 20px;
+    min-width: 600px;
+    margin: 0 auto;
+}
 .container {
     padding: 50px;
     min-width: 1200px;

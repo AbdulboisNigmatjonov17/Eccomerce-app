@@ -1,4 +1,4 @@
-import { ProductService } from './../servvices/product.service';
+import { ProductService } from '../services/product.service';
 import { Component, inject } from '@angular/core';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { ProductCard } from '../components/card/product-card/product-card';
