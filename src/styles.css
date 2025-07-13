@@ -1,11 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
 @import "@angular/material/prebuilt-themes/azure-blue.css";
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+    height: 100%;
+}
 
-.container{
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.container {
     padding: 50px;
     min-width: 1200px;
-    margin: auto;
+    margin: 0 auto;
+}
+.container .banner{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.container .banner h1{
+    font-size: 50px;
+    font-weight: 500;
+    margin-bottom: 0px;
 }
