@@ -1,6 +1,6 @@
 import { ProductService } from './../servvices/product.service';
 import { Component, inject, signal } from '@angular/core';
-import { Product } from '../models/product';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-product-list',
@@ -9,16 +9,20 @@ import { Product } from '../models/product';
   styleUrl: './product-list.css'
 })
 export class ProductList {
-  products = signal<Product[]>([]);
+  // products = signal<Product[]>([]);
   ProductService = inject(ProductService);
 
-  constructor() {
-    this.ProductService.getProducts().subscribe({
-      next: (products) => {
-        this.products.set(products);
-      }, error: (err) => {
-        console.log('Fetch Error', err);
-      }
-    })
-  }
+  productList = toSignal(this.ProductService.getProducts(), {
+    initialValue: []
+  });
+
+  // constructor() {
+  //   this.ProductService.getProducts().subscribe({
+  //     next: (data) => {
+  //       this.products.set(data);
+  //     }, error: (err) => {
+  //       console.log('Fetch Error', err);
+  //     }
+  //   })
+  // }
 }
