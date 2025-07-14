@@ -19,12 +19,27 @@ export class ProductCard {
 
   addCart(product: Product): void {
     const cartItem = { product, quantity: 1 };
-    this.cartService.addToCart(cartItem).subscribe({
-      next: () => this._snackBar.open('Product added to cart', '', {
-        duration: 2000,
-        horizontalPosition: 'right',
-        verticalPosition: 'top'
-      })
+    this.cartService.addToCart(cartItem, product.id).subscribe((isAdded) => {
+      if (isAdded) {
+        this._snackBar.open('Product added to cart', '', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top'
+        })
+      } else {
+        this._snackBar.open('Product quantity increased', '', {
+          duration: 2000,
+          horizontalPosition: 'left',
+          verticalPosition: 'top'
+        })
+      }
     })
   }
 }
+// .subscribe({
+//   next: () => this._snackBar.open('Product added to cart', '', {
+//     duration: 2000,
+//     horizontalPosition: 'right',
+//     verticalPosition: 'top'
+//   })
+// })
