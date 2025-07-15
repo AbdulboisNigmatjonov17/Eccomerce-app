@@ -19,9 +19,16 @@
     @for (item of cart(); track item.id) {
     <mat-card appearance="outlined" class="mb-2">
         <mat-card-header>
-            <mat-card-title>{{item.product.title}}</mat-card-title>
-            <mat-card-subtitle>{{item.product.price| currency}}</mat-card-subtitle>
+            <div>
+                <mat-card-title>{{item.product.title}}</mat-card-title>
+                <mat-card-subtitle>{{item.product.price| currency}}</mat-card-subtitle>
+            </div>
+            <div>
+                
+            </div>
         </mat-card-header>
+
+
 
         <mat-card-content class="mt-2">
             <div class="quantity-controls">

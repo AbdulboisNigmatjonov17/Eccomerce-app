@@ -24,11 +24,14 @@ export class ProductList {
   });
 
   filteredProducts = computed(() => {
-    const q = this.search().toLowerCase();
+    let q = this.search().toLowerCase();
     return this.productList().filter(product => product.title.toLowerCase().includes(q) || product.category.toLowerCase().includes(q));
   })
 
   categories = computed(() =>
     Array.from(new Set(this.productList().map(product => product.category)))
   )
+  resetFilters() {
+    this.search.set('');
+  }
 }

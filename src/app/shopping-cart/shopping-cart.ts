@@ -51,8 +51,9 @@ export class ShoppingCart {
   }
 
   decrease(cartId: string, currentQty: number) {
-    if (currentQty > 1) {
-      this.updateQuantity(cartId, currentQty - 1);
+    this.updateQuantity(cartId, currentQty - 1);
+    if (currentQty === 1) {
+      this.remove(cartId);
     }
   }
 
